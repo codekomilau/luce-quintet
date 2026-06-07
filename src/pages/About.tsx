@@ -1,4 +1,5 @@
-//import React from 'react';
+import { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import MusicalBackground from '../components/MusicalBackground';
 import { Music } from 'lucide-react';
 import soumyanilPhoto from '../assets/SoumyaNil Jana.png';
@@ -9,6 +10,19 @@ import gautamPhoto from '../assets/Gautham Bharel.png';
 
 
 const About = () => {
+ const { state } = useLocation();
+ const highlightedMember = state?.member ?? null;
+ const cardRefs = useRef<{ [name: string]: HTMLDivElement | null }>({});
+
+ useEffect(() => {
+   if (highlightedMember && cardRefs.current[highlightedMember]) {
+     setTimeout(() => {
+       cardRefs.current[highlightedMember]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+     }, 100);
+   }
+ }, [highlightedMember]);
+
+
  const musicians = [
    {
      name: "Soumyanil Jana",
@@ -106,7 +120,12 @@ const About = () => {
            {musicians.map((musician, index) => (
              <div
                key={index}
-               className="bg-black/50 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-amber-400/30 transition-all duration-300 hover:transform hover:scale-105"
+               ref={el => { cardRefs.current[musician.name] = el; }}
+               className={`bg-black/50 backdrop-blur-md rounded-2xl p-6 border transition-all duration-300 hover:transform hover:scale-105 ${
+                 highlightedMember === musician.name
+                   ? 'border-amber-400 shadow-[0_0_30px_rgba(251,191,36,0.4)]'
+                   : 'border-white/10 hover:border-amber-400/30'
+               }`}
              >
                <div className="aspect-square rounded-xl mb-6 overflow-hidden">
                  <img

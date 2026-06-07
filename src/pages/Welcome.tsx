@@ -12,60 +12,72 @@ const Welcome = () => {
      <MusicalBackground />
     
      {/* Hero Section */}
-     <div className="relative pt-20 pb-12 px-4 sm:px-6 lg:px-8">
+     <div className="relative pt-16 pb-1 px-4 sm:px-6 lg:px-8">
        <div className="max-w-7xl mx-auto">
-         <div className="relative bg-black/50 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/10">
-           <div className="text-center">
-             <h1 className="text-5xl md:text-7xl font-bold mb-6">
+         <div className="relative bg-black/50 backdrop-blur-md rounded-3xl p-2 md:p-3 border border-white/10">
+           <div className="text-center mb-1">
+             <h1 className="text-3xl md:text-4xl font-bold mb-1">
                <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200 bg-clip-text text-transparent drop-shadow-lg">
                  The Luce Quintet
                </span>
              </h1>
-             <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+             <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto leading-relaxed">
                Cultivating joy and community through music by providing free, diverse performances to all age groups.
              </p>
            </div>
-          
-           <div className="mt-12 rounded-2xl overflow-hidden border border-white/10 relative group/photo">
-             <img
-               src={groupPhoto}
-               alt="Luce Quintet Group Photo"
-               className="w-full object-cover"
-             />
-             {/* Dark overlay shown when hovering the photo */}
-             <div className="absolute inset-0 bg-black/0 group-hover/photo:bg-black/50 transition-all duration-300 pointer-events-none rounded-2xl" />
 
-             {/* Per-member hotzones */}
-             {[
-               { name: "Soumyanil Jana",       instrument: "First Violin",   left: 14, width: 19 },
-               { name: "Siddarth Afzalpurkar", instrument: "Second Violin",  left: 31, width: 13 },
-               { name: "Ranvir Singh",          instrument: "Viola",          left: 41, width: 11 },
-               { name: "Ryan Babler",           instrument: "Cello",          left: 51, width: 14 },
-               { name: "Gautam Bharel",         instrument: "Double Bass",    left: 66, width: 27 },
-             ].map(({ name, instrument, left, width }) => (
-               <div
-                 key={name}
-                 className="absolute top-0 h-full group/member"
-                 style={{ left: `${left}%`, width: `${width}%` }}
-               >
-                 {/* Bright cutout — cancels the dark overlay for this column */}
-                 <div className="absolute inset-0 opacity-0 group-hover/member:opacity-100 transition-all duration-300 rounded-sm"
-                   style={{ boxShadow: '0 0 0 9999px rgba(0,0,0,0.5)', mixBlendMode: 'normal' }}
-                 />
-                 {/* Amber glow border around the person */}
-                 <div className="absolute inset-0 opacity-0 group-hover/member:opacity-100 transition-all duration-300 border-2 border-amber-400/70 rounded-sm" />
-                 {/* Lighten the hovered column */}
-                 <div className="absolute inset-0 opacity-0 group-hover/member:opacity-100 transition-all duration-300 bg-white/10 rounded-sm" />
+           <div className="mt-2 rounded-2xl border border-white/10 relative group/photo mx-auto" style={{ width: '60%', overflow: 'hidden', transform: 'translateZ(0)' }}>
+             {/* Dark overlay — heavier dim on hover */}
+             <div className="absolute inset-0 bg-black/0 group-hover/photo:bg-black/60 transition-all duration-500 pointer-events-none rounded-2xl z-10" />
 
-                 {/* Name tooltip */}
-                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover/member:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
-                   <div className="bg-black/80 backdrop-blur-sm text-white text-sm font-semibold px-3 py-1.5 rounded-lg border border-amber-400/60 whitespace-nowrap text-center">
-                     <div>{name}</div>
-                     <div className="text-amber-400 text-xs font-normal">{instrument}</div>
+             {/* Image + hotzones wrapper — hotzones are relative to the image */}
+             <div className="relative" style={{ width: '136%', marginLeft: '-21%' }}>
+               <img
+                 src={groupPhoto}
+                 alt="Luce Quintet Group Photo"
+                 className="w-full block"
+               />
+
+               {/* Per-member hotzones */}
+               {[
+                 { name: "Soumyanil Jana",       instrument: "First Violin",   left: 14, width: 19 },
+                 { name: "Siddarth Afzalpurkar", instrument: "Second Violin",  left: 31, width: 13 },
+                 { name: "Ranvir Singh",          instrument: "Viola",          left: 41, width: 11 },
+                 { name: "Ryan Babler",           instrument: "Cello",          left: 51, width: 14 },
+                 { name: "Gautam Bharel",         instrument: "Double Bass",    left: 66, width: 27 },
+               ].map(({ name, instrument, left, width }) => (
+                 <Link
+                   key={name}
+                   to="/about"
+                   state={{ member: name }}
+                   className="absolute top-0 h-full group/member z-20 cursor-pointer transition-transform duration-300"
+                   style={{ left: `${left}%`, width: `${width}%` }}
+                 >
+                   {/* Spotlight — cancels the dark overlay for this column */}
+                   <div className="absolute inset-0 opacity-0 group-hover/member:opacity-100 transition-all duration-300 bg-white/15 rounded-sm z-20" />
+
+                   {/* Pulsing amber glow border */}
+                   <div className="absolute inset-0 opacity-0 group-hover/member:opacity-100 transition-all duration-300 rounded-sm z-20"
+                     style={{ boxShadow: '0 0 0 2px rgba(251,191,36,0.8), 0 0 20px 4px rgba(251,191,36,0.3)' }}
+                   />
+
+                   {/* Zoom container */}
+                   <div className="absolute inset-0 opacity-0 group-hover/member:opacity-100 transition-all duration-300 scale-100 group-hover/member:scale-105 z-20" />
+
+                   {/* Slide-up name card */}
+                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-4 opacity-0 group-hover/member:opacity-100 group-hover/member:translate-y-0 transition-all duration-300 pointer-events-none z-30 w-full px-1">
+                     <div className="bg-black/90 backdrop-blur-md text-white rounded-xl border border-amber-400/60 p-3 text-center shadow-lg shadow-amber-900/30">
+                       <div className="text-amber-400 text-xs font-medium uppercase tracking-widest mb-1">{instrument}</div>
+                       <div className="text-white text-sm font-bold">{name}</div>
+                       <div className="mt-2 text-amber-400/70 text-xs flex items-center justify-center gap-1">
+                         <span>View Profile</span>
+                         <span>→</span>
+                       </div>
+                     </div>
                    </div>
-                 </div>
-               </div>
-             ))}
+                 </Link>
+               ))}
+             </div>
            </div>
          </div>
        </div>
