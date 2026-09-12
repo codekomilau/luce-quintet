@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import MusicalBackground from '../components/MusicalBackground';
 import { Music } from 'lucide-react';
 import soumyanilPhoto from '../assets/SoumyaNil Jana.png';
 import ranvirPhoto from '../assets/Ranvir Singh.png';
@@ -50,12 +49,9 @@ const About = () => {
        "2023 - 2024: Symphonic Orchestra",
        "Youth Orchestra of Central Jersey (Pro Arte Orchestra): 2024 - Present",
        "Performed as assistant section leader and section leader",
-       "NJMTA Winner's Recital(Solo with Piano): 2023 - Present",
-       "2023, 2024: Honors Placement",
-       "2025: High Honors Placement",
-       "2025 Prima Volta Music Competition: 3rd Place + Winner's Recital Performance (Solo with Piano)"
+       "NJMTA Winner's Recital(Solo with Piano): 2023 - Present"
      ],
-     personalStatement: "I enjoy playing violin as it helps me relax and clear my mind, as well as letting me join a community of musicians both in school and out. I look forward to performing with the Luce Quintet in the future!"
+     personalStatement: "I enjoy playing the viola due to the sense of relaxation and happiness it gives me. I'm always open to learning new music, easy or hard, because it allows me to grow my skills and share my passion with other people , through performances and shows."
    },
    {
      name: "Siddarth Afzalpurkar",
@@ -99,18 +95,14 @@ const About = () => {
 
 
  return (
-   <div className="relative min-h-screen pt-20 pb-12">
-     <MusicalBackground />
-    
+   <div className="relative min-h-screen bg-white pt-20 pb-12">
      <div className="relative px-4 sm:px-6 lg:px-8">
        <div className="max-w-7xl mx-auto">
          <div className="text-center mb-16">
-           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-             <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200 bg-clip-text text-transparent drop-shadow-lg">
-               Meet Our Musicians
-             </span>
+           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-black">
+             Meet Our Musicians
            </h1>
-           <p className="text-xl text-white/80 max-w-3xl mx-auto">
+           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
              Talented students from Montgomery High School Orchestra, united by our passion for music and community service.
            </p>
          </div>
@@ -121,10 +113,10 @@ const About = () => {
              <div
                key={index}
                ref={el => { cardRefs.current[musician.name] = el; }}
-               className={`bg-black/50 backdrop-blur-md rounded-2xl p-6 border transition-all duration-300 hover:transform hover:scale-105 ${
+               className={`bg-white rounded-2xl p-6 border transition-all duration-300 hover:transform hover:scale-105 shadow-sm ${
                  highlightedMember === musician.name
-                   ? 'border-amber-400 shadow-[0_0_30px_rgba(251,191,36,0.4)]'
-                   : 'border-white/10 hover:border-amber-400/30'
+                   ? 'border-amber-400 shadow-[0_0_30px_rgba(251,191,36,0.3)]'
+                   : 'border-gray-200 hover:border-amber-400/50 hover:shadow-md'
                }`}
              >
                <div className="aspect-square rounded-xl mb-6 overflow-hidden">
@@ -134,30 +126,28 @@ const About = () => {
                    className="w-full h-full object-cover object-top"
                  />
                </div>
-              
+
                <div className="text-center">
-                 <h3 className="text-xl font-semibold text-white mb-2">{musician.name}</h3>
+                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{musician.name}</h3>
                  <div className="flex items-center justify-center mb-4">
-                   <Music className="w-5 h-5 text-amber-400 mr-2" />
-                   <span className="text-amber-400 font-medium">{musician.instrument}</span>
+                   <Music className="w-5 h-5 text-amber-500 mr-2" />
+                   <span className="text-amber-600 font-medium">{musician.instrument}</span>
                  </div>
-                
-                 {/* Bullet points for experience */}
+
                  <div className="text-left mb-6">
-                   <ul className="text-white/80 text-sm space-y-1">
+                   <ul className="text-gray-700 text-sm space-y-1">
                      {musician.bulletPoints.map((point, pointIndex) => (
                        <li key={pointIndex} className="flex items-start">
-                         <span className="text-amber-400 mr-2 mt-1">•</span>
+                         <span className="text-amber-500 mr-2 mt-1">•</span>
                          <span>{point}</span>
                        </li>
                      ))}
                    </ul>
                  </div>
-                
-                 {/* Personal Statement */}
-                 <div className="text-left bg-black/30 rounded-lg p-4 border border-white/10">
-                   <h4 className="text-amber-400 font-semibold mb-2">Personal Statement:</h4>
-                   <p className="text-white/80 text-sm leading-relaxed italic">
+
+                 <div className="text-left bg-gray-50 rounded-lg p-4 border border-gray-200">
+                   <h4 className="text-amber-600 font-semibold mb-2">Personal Statement:</h4>
+                   <p className="text-gray-700 text-sm leading-relaxed italic">
                      {musician.personalStatement}
                    </p>
                  </div>

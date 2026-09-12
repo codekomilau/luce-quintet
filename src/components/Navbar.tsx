@@ -13,7 +13,7 @@ const Navbar = () => {
  const navItems = [
    { path: '/', label: 'Welcome' },
    { path: '/about', label: 'About Musicians' },
-   { path: '/gallery', label: 'Photo Gallery' },
+   { path: '/gallery', label: 'Media Gallery' },
    { path: '/contact', label: 'Contact Us' },
  ];
 

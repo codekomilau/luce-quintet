@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import MusicalBackground from '../components/MusicalBackground';
 import { Mail, Send, MapPin } from 'lucide-react';
 
 
@@ -29,18 +28,14 @@ const Contact = () => {
 
 
  return (
-   <div className="relative min-h-screen pt-20 pb-12">
-     <MusicalBackground />
-    
+   <div className="relative min-h-screen bg-white pt-20 pb-12">
      <div className="relative px-4 sm:px-6 lg:px-8">
        <div className="max-w-7xl mx-auto">
          <div className="text-center mb-16">
-           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-             <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200 bg-clip-text text-transparent drop-shadow-lg">
-               Contact Us
-             </span>
+           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-black">
+             Contact Us
            </h1>
-           <p className="text-xl text-white/80 max-w-3xl mx-auto">
+           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
              Get in touch with The Luce Quintet for booking inquiries, collaboration opportunities, or general questions.
            </p>
          </div>
@@ -48,17 +43,17 @@ const Contact = () => {
 
          <div className="grid lg:grid-cols-2 gap-12">
            {/* Contact Information */}
-           <div className="bg-black/50 backdrop-blur-md rounded-2xl p-8 border border-white/10">
-             <h2 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200 bg-clip-text text-transparent drop-shadow-lg mb-8">Get In Touch</h2>
-            
+           <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+             <h2 className="text-3xl font-bold text-black mb-8">Get In Touch</h2>
+
              <div className="space-y-6">
                <div className="flex items-center space-x-4">
                  <div className="bg-blue-500 p-3 rounded-lg">
                    <Mail className="w-6 h-6 text-white" />
                  </div>
                  <div>
-                   <h3 className="text-lg font-semibold text-white">Email</h3>
-                   <p className="text-white/80">quintet.luce@gmail.com</p>
+                   <h3 className="text-lg font-semibold text-gray-900">Email</h3>
+                   <p className="text-gray-600">quintet.luce@gmail.com</p>
                  </div>
                </div>
 
@@ -68,16 +63,16 @@ const Contact = () => {
                    <MapPin className="w-6 h-6 text-white" />
                  </div>
                  <div>
-                   <h3 className="text-lg font-semibold text-white">Service Area</h3>
-                   <p className="text-white/80">Somerset County, New Jersey</p>
+                   <h3 className="text-lg font-semibold text-gray-900">Service Area</h3>
+                   <p className="text-gray-600">Somerset County, New Jersey</p>
                  </div>
                </div>
              </div>
 
 
-             <div className="mt-8 p-6 bg-black/30 rounded-xl border border-white/10">
-               <h3 className="text-xl font-semibold bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200 bg-clip-text text-transparent drop-shadow-lg mb-4">Performance Bookings</h3>
-               <p className="text-white/80 leading-relaxed">
+             <div className="mt-8 p-6 bg-gray-50 rounded-xl border border-gray-200">
+               <h3 className="text-xl font-semibold text-gray-900 mb-4">Performance Bookings</h3>
+               <p className="text-gray-600 leading-relaxed">
                  We offer free performances for libraries, schools, retirement homes, and community centers.
                  Contact us to schedule a performance for your venue or event.
                </p>
@@ -86,12 +81,12 @@ const Contact = () => {
 
 
            {/* Contact Form */}
-           <div className="bg-black/50 backdrop-blur-md rounded-2xl p-8 border border-white/10">
-             <h2 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-200 bg-clip-text text-transparent drop-shadow-lg mb-8">Send a Message</h2>
-            
+           <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+             <h2 className="text-3xl font-bold text-black mb-8">Send a Message</h2>
+
              <form onSubmit={handleSubmit} className="space-y-6">
                <div>
-                 <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
+                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                    Name
                  </label>
                  <input
@@ -101,14 +96,14 @@ const Contact = () => {
                    value={formData.name}
                    onChange={handleChange}
                    required
-                   className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg text-white placeholder-white/40 focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition-colors duration-300"
+                   className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition-colors duration-300"
                    placeholder="Your name"
                  />
                </div>
 
 
                <div>
-                 <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-2">
+                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                    Email
                  </label>
                  <input
@@ -118,14 +113,14 @@ const Contact = () => {
                    value={formData.email}
                    onChange={handleChange}
                    required
-                   className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg text-white placeholder-white/40 focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition-colors duration-300"
+                   className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition-colors duration-300"
                    placeholder="your@email.com"
                  />
                </div>
 
 
                <div>
-                 <label htmlFor="subject" className="block text-sm font-medium text-white/80 mb-2">
+                 <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
                    Subject
                  </label>
                  <input
@@ -135,14 +130,14 @@ const Contact = () => {
                    value={formData.subject}
                    onChange={handleChange}
                    required
-                   className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg text-white placeholder-white/40 focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition-colors duration-300"
+                   className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition-colors duration-300"
                    placeholder="Performance booking, collaboration, etc."
                  />
                </div>
 
 
                <div>
-                 <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-2">
+                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                    Message
                  </label>
                  <textarea
@@ -152,7 +147,7 @@ const Contact = () => {
                    onChange={handleChange}
                    required
                    rows={5}
-                   className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg text-white placeholder-white/40 focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition-colors duration-300 resize-none"
+                   className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition-colors duration-300 resize-none"
                    placeholder="Tell us about your event, questions, or how we can help..."
                  />
                </div>
