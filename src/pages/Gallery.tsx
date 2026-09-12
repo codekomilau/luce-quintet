@@ -9,7 +9,7 @@ import montgomeryHighSchoolPhoto from '../assets/GrroupPhotoMontgomeryHighSchool
 type MediaItem = {
   title: string;
   description: string;
-} & ({ type: 'video'; src: string } | { type: 'image'; src: string });
+} & ({ type: 'video'; src: string } | { type: 'image'; src: string } | { type: 'youtube'; src: string });
 
 const Gallery = () => {
   const galleryItems: MediaItem[] = [
@@ -20,8 +20,8 @@ const Gallery = () => {
       description: 'Interstellar theme performed live',
     },
     {
-      type: 'image',
-      src: montgomeryLibraryPhoto,
+      type: 'youtube',
+      src: 'https://www.youtube.com/embed/dcLM9zYqeD4',
       title: 'West Windsor Library',
       description: 'In My Life performed live',
     },
@@ -71,7 +71,15 @@ const Gallery = () => {
                 className="group bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-amber-400/50 transition-all duration-300 hover:transform hover:scale-105 shadow-sm hover:shadow-md"
               >
                 <div className="aspect-video overflow-hidden bg-black">
-                  {item.type === 'video' ? (
+                  {item.type === 'youtube' ? (
+                    <iframe
+                      src={item.src}
+                      title={item.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  ) : item.type === 'video' ? (
                     <video
                       src={item.src}
                       controls
