@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Music } from 'lucide-react';
 import soumyanilPhoto from '../assets/SoumyaNil Jana.png';
-import ranvirPhoto from '../assets/Ranvir Singh.png';
+import ranvirPhoto from '../assets/Ranvir Singh - About.jpg';
 import siddarthPhoto from '../assets/Siddhart Afzalpurkar.png';
 import ryanPhoto from '../assets/Ryan Babler.png';
 import gautamPhoto from '../assets/Gautham Bharel.png';
