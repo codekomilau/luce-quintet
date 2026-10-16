@@ -5,6 +5,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Welcome from './pages/Welcome';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
+import PerformancesMedia from './pages/PerformancesMedia';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
 
@@ -19,6 +20,7 @@ function App() {
          <Route path="/" element={<Welcome />} />
          <Route path="/about" element={<About />} />
          <Route path="/gallery" element={<Gallery />} />
+         <Route path="/media" element={<PerformancesMedia />} />
          <Route path="/contact" element={<Contact />} />
        </Routes>
        <Footer />
